@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>A Special Space for You</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background: url('https://upload.wikimedia.org/wikipedia/commons/e/e1/Starsinthesky.jpg') no-repeat center center fixed;
+            background-size: cover;
+            color: white;
+            text-align: center;
+        }
+        header {
+            padding: 20px;
+            background: rgba(0, 0, 0, 0.7);
+            color: #ffd700;
+        }
+        section {
+            padding: 20px;
+            margin: 20px auto;
+            max-width: 800px;
+            border-radius: 10px;
+            background: rgba(0, 0, 0, 0.5);
+        }
+        img {
+            width: 100%;
+            max-width: 400px;
+            border-radius: 10px;
+            margin-top: 10px;
+        }
+        button {
+            padding: 10px 20px;
+            background: #ffd700;
+            border: none;
+            color: #000;
+            font-size: 16px;
+            cursor: pointer;
+            border-radius: 5px;
+        }
+        button:hover {
+            background: #ffc107;
+        }
+        footer {
+            margin-top: 20px;
+        }
+        #miracle {
+            margin-top: 20px;
+            display: none;
+            font-size: 20px;
+        }
+        .star {
+            position: absolute;
+            background: white;
+            width: 5px;
+            height: 5px;
+            border-radius: 50%;
+            animation: fall 2s infinite;
+        }
+        @keyframes fall {
+            0% {
+                transform: translateY(-100%);
+                opacity: 1;
+            }
+            100% {
+                transform: translateY(100vh);
+                opacity: 0;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>A Special Space for You</h1>
+    </header>
+    <section id="tulips">
+        <h2>Yellow Tulips</h2>
+        <p>Yellow tulips symbolize happiness, sunshine, and friendship—just like you.</p>
+        <img src="https://upload.wikimedia.org/wikipedia/commons/a/ab/Yellow_tulip.jpg" alt="Yellow Tulips">
+    </section>
+    <section id="stars-moon">
+        <h2>Stars and the Moon</h2>
+        <p>Whenever you look at the stars and the moon, remember that someone thinks you're amazing.</p>
+        <img src="https://upload.wikimedia.org/wikipedia/commons/9/99/Full_moon.jpg" alt="Moon">
+    </section>
+    <section id="bts">
+        <h2>BTS</h2>
+        <p>Because BTS and their music bring joy, just like you do.</p>
+        <iframe width="560" height="315" src="https://www.youtube.com/embed/MBdVXkSdhwU" title="BTS Music Video"
+            frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+            allowfullscreen></iframe>
+    </section>
+    <section id="kdrama">
+        <h2>Kdramas</h2>
+        <p>Your life could be the next Kdrama I’d watch!</p>
+    </section>
+    <section id="message">
+        <h2>A Message for You</h2>
+        <p>You’re an amazing person, and I’m grateful for our friendship. Keep shining like the stars and the moon.</p>
+    </section>
+    <footer>
+        <button id="miracle-btn">Press to see a miracle!</button>
+        <div id="miracle"></div>
+    </footer>
+    <script>
+        const miracleBtn = document.getElementById('miracle-btn');
+        const miracleDiv = document.getElementById('miracle');
+
+        miracleBtn.addEventListener('click', () => {
+            miracleDiv.style.display = 'block';
+            miracleDiv.innerHTML = '';
+            for (let i = 0; i < 100; i++) {
+                const star = document.createElement('div');
+                star.className = 'star';
+                star.style.left = Math.random() * window.innerWidth + 'px';
+                star.style.animationDelay = Math.random() * 2 + 's';
+                document.body.appendChild(star);
+
+                setTimeout(() => star.remove(), 2000);
+            }
+        });
+    </script>
+</body>
+</html>
